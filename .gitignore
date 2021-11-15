@@ -50,3 +50,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+*.suo
+Building your first api with ASP.NET Core/CityInfo.API/obj/
