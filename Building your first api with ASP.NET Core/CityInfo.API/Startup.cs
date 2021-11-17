@@ -8,8 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CityInfo.API.Contexts;
 using CityInfo.API.Services;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
 
 namespace CityInfo.API
@@ -44,6 +46,12 @@ namespace CityInfo.API
 #else
             services.AddTransient<IMailService, CloudMailService>();
 #endif
+            var connectionString =
+                "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CityInfoDB;Trusted_Connection=True;";
+                services.AddDbContext<CityInfoContext>(o =>
+            {
+                o.UseSqlServer(connectionString);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
