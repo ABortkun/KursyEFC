@@ -1,0 +1,14 @@
+2021-11-17 16:01:14.8496|INFO|CityInfo.API.Program|Initializing application...
+2021-11-17 16:01:15.8556|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-17 16:01:16.5631|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:1028/  0
+2021-11-17 16:01:16.5631|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/  
+2021-11-17 16:01:16.6197|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 70.4273ms 200 
+2021-11-17 16:01:16.8246|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.
+2021-11-17 16:01:16.8672|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 322.8896ms 500 text/html; charset=utf-8
+2021-11-17 16:01:26.5721|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:1028/api/cities/1/pointsofinterest/1  
+2021-11-17 16:01:26.6114|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "DeletePointOfInterest", controller = "PointsOfInterest", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeletePointOfInterest(Int32, Int32) on controller CityInfo.API.Controllers.PointsOfInterestController (CityInfo.API).
+2021-11-17 16:01:26.6359|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method CityInfo.API.Controllers.PointsOfInterestController.DeletePointOfInterest (CityInfo.API) - Validation state: Valid
+2021-11-17 16:01:26.6470|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method CityInfo.API.Controllers.PointsOfInterestController.DeletePointOfInterest (CityInfo.API), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 6.8592ms.
+2021-11-17 16:01:26.6470|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2021-11-17 16:01:26.6470|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action CityInfo.API.Controllers.PointsOfInterestController.DeletePointOfInterest (CityInfo.API) in 44.1847ms
+2021-11-17 16:01:26.6644|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 97.8215ms 204 
