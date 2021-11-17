@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace CityInfo.API.Services
 {
     public class CloudMailService : IMailService
     {
-        private string _mailTo = "admin@mycompany.com";
-        private string _mailFrom = "noreply@mycompany.com";
+        private readonly IConfiguration _configuration;
 
+        public CloudMailService(IConfiguration configuration)
+        {
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+        }
 
         public void Send(string subject, string message)
         {
             //send mail - output to debug window
-            Debug.WriteLine($"Mail from {_mailFrom} to {_mailTo}, with CloudMailService");
+            Debug.WriteLine($"Mail from {_configuration["mailSettings:mailFromAddress"]} to {_configuration["mailSettings:mailToAddress"]}, with LocalMailService");
             Debug.WriteLine($"Subject: {subject}");
             Debug.WriteLine($"Message: {message}");
 
