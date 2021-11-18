@@ -4,9 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using CityInfo.API.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CityInfo.API.Contexts
 {
+    public class CityConfiguration : IEntityTypeConfiguration<City>
+    {
+        public void Configure(EntityTypeBuilder<City> builder)
+        {
+         
+        }
+    }
     public class CityInfoContext : DbContext
     {
         public DbSet<City> Cities { get; set; }
@@ -20,6 +28,8 @@ namespace CityInfo.API.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.ApplyConfiguration(new CityConfiguration());
             modelBuilder.Entity<City>()
                  .HasData(
                 new City()
