@@ -18,9 +18,11 @@ namespace CityInfo.API
 {
     public class Startup
     {
+        private readonly IConfiguration _configuration;
+
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         }
 
         public IConfiguration Configuration { get; }
@@ -46,8 +48,8 @@ namespace CityInfo.API
 #else
             services.AddTransient<IMailService, CloudMailService>();
 #endif
-            var connectionString =
-                "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CityInfoDB;Trusted_Connection=True;";
+            var connectionString = _configuration["ConnectionStrings:cityInfoDBConnectionString"]
+               ;
                 services.AddDbContext<CityInfoContext>(o =>
             {
                 o.UseSqlServer(connectionString);
