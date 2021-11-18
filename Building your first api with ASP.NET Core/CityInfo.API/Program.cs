@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using CityInfo.API.Contexts;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using NLog.Web;
 
 namespace CityInfo.API
@@ -22,8 +25,22 @@ namespace CityInfo.API
             {
 
                 logger.Info("Initializing application...");
-                CreateWebHostBuilder(args).Build().Run();
+                var host = CreateWebHostBuilder(args).Build();
 
+                using (var scope = host.Services.CreateScope())
+                {
+                    try
+                    {
+                        var context = scope.ServiceProvider.GetService<CityInfoContext>();
+                        context.Database.EnsureDeleted();
+                        context.Database.Migrate();
+                    }
+                    catch (Exception e)
+                    {
+                        logger.Error(e, "An error occurred while migrating the database.");
+                    }
+                }
+                host.Run();
             }
             catch (Exception ex)
             {
