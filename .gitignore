@@ -53,3 +53,4 @@ dkms.conf
 *.suo
 Building your first api with ASP.NET Core/CityInfo.API/obj/
 *.v2
+*.log

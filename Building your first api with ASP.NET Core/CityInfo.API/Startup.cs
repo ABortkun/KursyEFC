@@ -13,6 +13,7 @@ using CityInfo.API.Services;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace CityInfo.API
 {
@@ -31,10 +32,7 @@ namespace CityInfo.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
-                .AddMvcOptions(o =>
-                {
-                    o.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
-                });
+                .AddMvcOptions(o => { o.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter()); });
             //.AddJsonOptions(o =>
             //{
             //    if (o.SerializerSettings.ContractResolver != null)
@@ -49,13 +47,16 @@ namespace CityInfo.API
             services.AddTransient<IMailService, CloudMailService>();
 #endif
             var connectionString = _configuration["ConnectionStrings:cityInfoDBConnectionString"]
-               ;
-                services.AddDbContext<CityInfoContext>(o =>
+                ;
+            services.AddDbContext<CityInfoContext>(o => { o.UseSqlServer(connectionString); });
+
+            services.AddScoped<ICityInfoRepository, CityInfoRepository>();
+
+            services.AddSwaggerGen(c =>
             {
-                o.UseSqlServer(connectionString);
+                c.SwaggerDoc("v1", new Info {Title = "CityInfoMethods", Version = "v1"});
             });
 
-                services.AddScoped<ICityInfoRepository, CityInfoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,6 +65,11 @@ namespace CityInfo.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "CityInfoMethods v1");
+                });
             }
 
             app.UseStatusCodePages(); //zwraca .txt z kodem statusu
