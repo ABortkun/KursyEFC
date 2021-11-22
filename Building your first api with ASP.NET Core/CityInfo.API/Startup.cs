@@ -75,6 +75,10 @@ namespace CityInfo.API
             app.UseStatusCodePages(); //zwraca .txt z kodem statusu
 
             app.UseMvc();
+
+            app.UseDefaultFiles();
+
+            app.UseStaticFiles();
         }
     }
 }

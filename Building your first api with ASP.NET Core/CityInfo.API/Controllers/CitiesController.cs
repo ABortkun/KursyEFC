@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using CityInfo.API.Models;
 using CityInfo.API.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.CodeAnalysis.Operations;
 
 namespace CityInfo.API.Controllers
 {
     [ApiController]
     [Route("api/cities")]
-    public class CitiesController : ControllerBase
+    public class CitiesController : Controller
     {
         private readonly ICityInfoRepository _cityInfoRepository;
 
@@ -38,7 +39,7 @@ namespace CityInfo.API.Controllers
                 });
             }
 
-            return Ok(results);
+            return View();
         }
 
         [HttpGet("{id}")]
