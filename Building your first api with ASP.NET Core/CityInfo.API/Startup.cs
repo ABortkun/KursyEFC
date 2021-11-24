@@ -56,7 +56,6 @@ namespace CityInfo.API
             {
                 c.SwaggerDoc("v1", new Info {Title = "CityInfoMethods", Version = "v1"});
             });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,13 +71,9 @@ namespace CityInfo.API
                 });
             }
 
-            app.UseStatusCodePages(); //zwraca .txt z kodem statusu
-
-            app.UseMvc();
-
-            app.UseDefaultFiles();
-
             app.UseStaticFiles();
+            app.UseStatusCodePages(); //zwraca .txt z kodem statusu
+            app.UseMvc();
         }
     }
 }

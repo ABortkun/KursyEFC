@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using CityInfo.API.Models;
 using CityInfo.API.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
-using Microsoft.CodeAnalysis.Operations;
 
 namespace CityInfo.API.Controllers
 {
