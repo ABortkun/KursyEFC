@@ -2,11 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'city',
-  template: `
-<div>
-<p> app component is here </p>
-</div>`,
+  templateUrl: "app.component.html",
   styles: []
 })
 export class AppComponent {
+    title = 'Tytull'
 }
