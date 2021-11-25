@@ -11,4 +11,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="2.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="client\src\app\Services\" />
+  </ItemGroup>
+
 </Project>
