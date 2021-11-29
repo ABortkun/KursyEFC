@@ -9,11 +9,9 @@ import { Towns } from "./Services/towns.service";
 export class AppComponent implements OnInit {
 
 
-    constructor(public towns: Towns) {
+    constructor() {
     }
 
     ngOnInit(): void {
-        this.towns.loadCities()
-            .subscribe();
     }
 }

@@ -1,0 +1,16 @@
+﻿<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of towns.cities">
+        <td>{{ c.id }}</td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.description }}</td>
+    </tr>
+    </tbody>
+</table>
