@@ -3,14 +3,16 @@ using CityInfo.API.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CityInfo.API.Migrations
 {
     [DbContext(typeof(CityInfoContext))]
-    partial class CityInfoContextModelSnapshot : ModelSnapshot
+    [Migration("20211129121358_CityInfoDBAddWarsawAndGdansk")]
+    partial class CityInfoDBAddWarsawAndGdansk
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,9 +40,7 @@ namespace CityInfo.API.Migrations
                     b.HasData(
                         new { Id = 1, Description = "The one with that big park.", Name = "New York City" },
                         new { Id = 2, Description = "The one with the cathedral that was never really finished.", Name = "Antwerp" },
-                        new { Id = 3, Description = "The one with that big tower.", Name = "Paris" },
-                        new { Id = 4, Description = "Big part of Tri-City with acces to the sea", Name = "Gdańsk" },
-                        new { Id = 5, Description = "The one with that big tower.", Name = "Warszawa" }
+                        new { Id = 3, Description = "The one with that big tower.", Name = "Paris" }
                     );
                 });
 
@@ -71,11 +71,7 @@ namespace CityInfo.API.Migrations
                         new { Id = 3, CityId = 2, Description = "A Gothic style cathedral, conceived by architects Jan and Pieter Appelmans.", Name = "Cathedral" },
                         new { Id = 4, CityId = 2, Description = "The the finest example of railway architecture in Belgium.", Name = "Antwerp Central Station" },
                         new { Id = 5, CityId = 3, Description = "A wrought iron lattice tower on the Champ de Mars, named after engineer Gustave Eiffel.", Name = "Eiffel Tower" },
-                        new { Id = 6, CityId = 3, Description = "The world's largest museum.", Name = "The Louvre" },
-                        new { Id = 7, CityId = 4, Description = "historic fountain in Gdańsk", Name = "Neptun's Fountain" },
-                        new { Id = 8, CityId = 4, Description = "the largest brick temple in Europe", Name = "St. Mary's Basilica" },
-                        new { Id = 9, CityId = 5, Description = "The palace is the seat of the Council of the Capital City of Of Warsaw, which deliberates in the Warsaw Hall.", Name = "Palace of Culture and Science" },
-                        new { Id = 10, CityId = 5, Description = "Historical museum in Warsaw", Name = "Museum of the Warsaw Uprising" }
+                        new { Id = 6, CityId = 3, Description = "The world's largest museum.", Name = "The Louvre" }
                     );
                 });
 

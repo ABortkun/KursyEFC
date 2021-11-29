@@ -67,7 +67,41 @@ namespace CityInfo.API
                              Name = "The Louvre",
                              Description = "The world's largest museum." },
                      }
+                },
+                new CityDto()
+                {
+                Id= 4,
+                Name = "Gdańsk",
+                Description = "Big part of Tri-City with acces to the sea",
+                PointsOfInterest = new List<PointOfInterestDto>()
+                {
+                    new PointOfInterestDto() {
+                        Id = 7,
+                        Name = "Neptun's Fountain",
+                        Description = "historic fountain in Gdańsk" },
+                    new PointOfInterestDto() {
+                        Id = 8,
+                        Name = "St. Mary's Basilica",
+                        Description = "the largest brick temple in Europe" },
                 }
+            },
+            new CityDto()
+            {
+                Id= 5,
+                Name = "Warszawa",
+                Description = "The one with that big tower.",
+                PointsOfInterest = new List<PointOfInterestDto>()
+                {
+                    new PointOfInterestDto() {
+                        Id = 9,
+                        Name = "Palace of Culture and Science",
+                        Description = "The palace is the seat of the Council of the Capital City of Of Warsaw, which deliberates in the Warsaw Hall." },
+                    new PointOfInterestDto() {
+                        Id = 10,
+                        Name = "Museum of the Warsaw Uprising",
+                        Description = "Historical museum in Warsaw" },
+                }
+            }
             };
         }
 

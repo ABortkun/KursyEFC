@@ -31,26 +31,37 @@ namespace CityInfo.API.Contexts
 
             modelBuilder.ApplyConfiguration(new CityConfiguration());
             modelBuilder.Entity<City>()
-                 .HasData(
-                new City()
-                {
-                    Id = 1,
-                    Name = "New York City",
-                    Description = "The one with that big park."
-                },
-                new City()
-                {
-                    Id = 2,
-                    Name = "Antwerp",
-                    Description = "The one with the cathedral that was never really finished."
-                },
-                new City()
-                {
-                    Id = 3,
-                    Name = "Paris",
-                    Description = "The one with that big tower."
-                });
-
+                .HasData(
+                    new City()
+                    {
+                        Id = 1,
+                        Name = "New York City",
+                        Description = "The one with that big park."
+                    },
+                    new City()
+                    {
+                        Id = 2,
+                        Name = "Antwerp",
+                        Description = "The one with the cathedral that was never really finished."
+                    },
+                    new City()
+                    {
+                        Id = 3,
+                        Name = "Paris",
+                        Description = "The one with that big tower."
+                    },
+                    new City()
+                    {
+                        Id = 4,
+                        Name = "Gdańsk",
+                        Description = "Big part of Tri-City with acces to the sea"
+                    },
+                    new City()
+                    {
+                        Id = 5,
+                        Name = "Warszawa",
+                        Description = "The one with that big tower."
+                    });
 
             modelBuilder.Entity<PointOfInterest>()
               .HasData(
@@ -96,7 +107,35 @@ namespace CityInfo.API.Contexts
                     CityId = 3,
                     Name = "The Louvre",
                     Description = "The world's largest museum."
-                }
+                },
+            new PointOfInterest()
+                {
+                Id = 7,
+                CityId = 4,
+                Name = "Neptun's Fountain",
+                Description = "historic fountain in Gdańsk"
+            },
+            new PointOfInterest()
+                {
+                Id = 8,
+                CityId = 4,
+                Name = "St. Mary's Basilica",
+                Description = "the largest brick temple in Europe"
+            },
+            new PointOfInterest()
+                {
+                Id = 9,
+                CityId = 5,
+                Name = "Palace of Culture and Science",
+                Description = "The palace is the seat of the Council of the Capital City of Of Warsaw, which deliberates in the Warsaw Hall."
+            },
+            new PointOfInterest()
+                {
+                Id = 10,
+                CityId = 5,
+                Name = "Museum of the Warsaw Uprising",
+                Description = "Historical museum in Warsaw"
+            }
                 );
             base.OnModelCreating(modelBuilder);
         }
