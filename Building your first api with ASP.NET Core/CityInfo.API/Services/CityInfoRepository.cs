@@ -19,7 +19,7 @@ namespace CityInfo.API.Services
 
         public IEnumerable<City> GetCities()
         {
-            return _context.Cities.OrderBy(c => c.Name).ToList();
+            return _context.Cities.OrderBy(c => c.Id).ToList();
         }
 
         public City GetCity(int cityId, bool includePointsOfInterest)
