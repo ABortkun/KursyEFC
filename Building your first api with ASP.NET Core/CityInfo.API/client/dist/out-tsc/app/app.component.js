@@ -1,8 +1,12 @@
 import { __decorate } from "tslib";
 import { Component } from '@angular/core';
 let AppComponent = class AppComponent {
-    constructor() {
-        this.title = 'Tytul';
+    constructor(towns) {
+        this.towns = towns;
+    }
+    ngOnInit() {
+        this.towns.loadCities()
+            .subscribe();
     }
 };
 AppComponent = __decorate([

@@ -23,6 +23,12 @@ namespace CityInfo.API.Controllers
         [HttpGet]
         public IActionResult GetCities()
         {
+            return View();
+        }
+
+        [HttpGet("citiesOnly")]
+        public IActionResult GetCitiesOnly()
+        {
             var cityEntities = _cityInfoRepository.GetCities();
 
             var results = new List<CityWithoutPointsOfInterestDto>();
@@ -37,7 +43,7 @@ namespace CityInfo.API.Controllers
                 });
             }
 
-            return View();
+            return Ok(results);
         }
 
         [HttpGet("{id}")]

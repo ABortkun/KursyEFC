@@ -12,6 +12,7 @@ namespace CityInfo.API.Controllers
     [Route("")]
     public class HomeController : Controller
     {
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Welcome()
         {
             return View();

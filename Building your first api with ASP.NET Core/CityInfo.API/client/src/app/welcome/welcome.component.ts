@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export default class WelcomeComponent {
+export class WelcomeComponent {
 }
