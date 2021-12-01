@@ -7,6 +7,9 @@ import { WelcomeComponent } from "./Components/welcome/welcome.component";
 import { Towns } from "./Services/towns.service";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CitiesOnlyComponent } from './Components/CitiesOnly/cities-only.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+//import { NgbdTablePagination } from "./Components/CitiesOnly/cities-only.component";
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -14,15 +17,19 @@ AppModule = __decorate([
         declarations: [
             AppComponent,
             WelcomeComponent,
-            CitiesOnlyComponent
+            CitiesOnlyComponent,
+            //NgbdTablePagination
         ],
         imports: [
             BrowserModule,
             HttpClientModule,
-            NgbModule
+            NgbModule,
+            CommonModule,
+            FormsModule
         ],
+        exports: [CitiesOnlyComponent],
         providers: [Towns],
-        bootstrap: [AppComponent]
+        bootstrap: [AppComponent, CitiesOnlyComponent]
     })
 ], AppModule);
 export { AppModule };

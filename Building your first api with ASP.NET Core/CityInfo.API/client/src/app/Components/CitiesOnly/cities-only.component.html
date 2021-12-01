@@ -14,3 +14,14 @@
     </tr>
     </tbody>
 </table>
+
+<div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCities()">
+    </ngb-pagination>
+
+    <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCities()">
+        <option [ngValue]="1">1 item per page</option>
+        <option [ngValue]="3">3 items per page</option>
+        <option [ngValue]="5">5 items per page</option>
+    </select>
+</div>
