@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CitiesOnlyComponent } from './Components/CitiesOnly/cities-only.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CityAddComponent } from './Components/city-add/city-add.component';
 //import { NgbdTablePagination } from "./Components/CitiesOnly/cities-only.component";
 let AppModule = class AppModule {
 };
@@ -18,6 +19,7 @@ AppModule = __decorate([
             AppComponent,
             WelcomeComponent,
             CitiesOnlyComponent,
+            CityAddComponent,
             //NgbdTablePagination
         ],
         imports: [
