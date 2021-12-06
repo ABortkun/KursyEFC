@@ -26,6 +26,12 @@ namespace CityInfo.API.Controllers
             return View();
         }
 
+        [HttpPost("city")]
+        public void PostCity(string name, string description)
+        {
+            _cityInfoRepository.AddCity( name, description);
+        }
+
         [HttpGet("citiesOnly")]
         public IActionResult GetCitiesOnly()
         {

@@ -32,7 +32,8 @@ namespace CityInfo.API.Contexts
             modelBuilder.ApplyConfiguration(new CityConfiguration());
             modelBuilder.Entity<City>()
                 .HasData(
-                    new City()
+                    new 
+                        City()
                     {
                         Id = 1,
                         Name = "New York City",

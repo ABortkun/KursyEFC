@@ -9,6 +9,7 @@ import { CitiesOnlyComponent } from './Components/CitiesOnly/cities-only.compone
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CityAddComponent } from './Components/city-add/city-add.component';
+import { Client } from "./Services/service" ;
 //import { NgbdTablePagination } from "./Components/CitiesOnly/cities-only.component";
 
 
@@ -29,7 +30,7 @@ import { CityAddComponent } from './Components/city-add/city-add.component';
         FormsModule
     ],
     exports: [CitiesOnlyComponent],
-    providers: [Towns],
+    providers: [Towns, Client],
     bootstrap: [AppComponent, CitiesOnlyComponent]
 })
 export class AppModule { }

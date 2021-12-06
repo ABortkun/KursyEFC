@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Towns } from "../../Services/towns.service";
 import { City }  from "../../shared/City";
 import { map } from "rxjs/operators";
+import { Client } from "../../Services/service";
 
 @Component({
   selector: 'app-cities-only',
@@ -11,11 +12,12 @@ import { map } from "rxjs/operators";
 })
 export class CitiesOnlyComponent implements OnInit {
 
-    constructor(public towns: Towns) {
+    constructor(public towns: Towns, public city: Client) {
         this.refreshCities();
     }
 
     ngOnInit(): void {
+        this.city.apiCitiesCitiesOnlyGet().subscribe(r => console.log(r));
        this.towns.loadCities()
             .subscribe();
     }
