@@ -5,29 +5,30 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from "./Components/welcome/welcome.component";
 import { Towns } from "./Services/towns.service";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CitiesOnlyComponent } from './Components/CitiesOnly/cities-only.component';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { CityAddComponent } from './Components/city-add/city-add.component';
-import { Client } from "./Services/service" ;
-//import { NgbdTablePagination } from "./Components/CitiesOnly/cities-only.component";
+import { RouterModule, Routes } from '@angular/router';
+import { CityListPageComponent } from "./pages/CityListPage.component";
 
+const routes: Routes = [
+    {
+        path: '',
+        component: CityListPageComponent
+    },
+    {
+        path: 'welcome',
+        component: WelcomeComponent
+    }
+];
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        WelcomeComponent,
-        CitiesOnlyComponent,
-        CityAddComponent,
-        //NgbdTablePagination
+        WelcomeComponent
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
-        NgbModule,
-        CommonModule,
-        FormsModule
+        NgbModule
     ],
     exports: [CitiesOnlyComponent],
     providers: [Towns, Client],
