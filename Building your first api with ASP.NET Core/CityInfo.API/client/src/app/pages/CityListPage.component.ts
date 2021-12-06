@@ -1,5 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Towns } from "../Services/towns.service";
+import { Client } from "../Services/service";
+
 
 
 @Component({
@@ -9,12 +11,10 @@ import { Towns } from "../Services/towns.service";
 })
 export class CityListPageComponent implements OnInit {
 
-
-    constructor(public towns: Towns) {
+    constructor(public client: Client) {
     }
 
     ngOnInit(): void {
-        this.towns.loadCities()
-            .subscribe();
+        this.client.apiCitiesCitiesOnlyGet();
     }
 }

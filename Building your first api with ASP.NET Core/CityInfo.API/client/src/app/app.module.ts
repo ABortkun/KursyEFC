@@ -23,15 +23,17 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         AppComponent,
-        WelcomeComponent
+        WelcomeComponent,
+        CityListPageComponent
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
-        NgbModule
+        NgbModule,
+        RouterModule.forRoot(routes)
     ],
-    exports: [CitiesOnlyComponent],
-    providers: [Towns, Client],
-    bootstrap: [AppComponent, CitiesOnlyComponent]
+    exports: [],
+    providers: [Towns],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
