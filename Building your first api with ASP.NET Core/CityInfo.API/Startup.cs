@@ -56,6 +56,10 @@ namespace CityInfo.API
             {
                 c.SwaggerDoc("v1", new Info {Title = "CityInfoMethods", Version = "v1"});
             });
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "client/dist";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,6 +78,7 @@ namespace CityInfo.API
             app.UseStaticFiles();
             app.UseStatusCodePages(); //zwraca .txt z kodem statusu
             app.UseMvc();
+            app.UseSpa(spa => spa.Options.SourcePath = "client");
         }
     }
 }

@@ -1,19 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Towns } from "./Services/towns.service";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'city',
+  selector: 'app-root',
   templateUrl: "app.component.html",
   styles: []
 })
-export class AppComponent implements OnInit {
-
-
-    constructor(public towns: Towns) {
-    }
-
-    ngOnInit(): void {
-        this.towns.loadCities()
-            .subscribe();
-    }
+export class AppComponent {
 }
