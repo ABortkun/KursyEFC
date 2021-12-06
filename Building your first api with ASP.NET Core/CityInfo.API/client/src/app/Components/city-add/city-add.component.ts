@@ -1,6 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm, NgModel, FormBuilder, FormGroup } from "@angular/forms";
 import { cityadd } from "../../shared/cityadd";
+import { Towns } from "../../Services/towns.service";
+import { City } from "../../shared/City";
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map, tap } from "rxjs/operators";
+
 
 @Component({
   selector: "app-city-add",
@@ -17,7 +23,7 @@ export class CityAddComponent implements OnInit {
 
     cityadd : cityadd = {...this.oryginalcityadd}
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +31,12 @@ export class CityAddComponent implements OnInit {
       console.log("in onSubmit: ", form.value);
       console.log("cityadd.name:", this.cityadd.name);
       console.log("cityadd.description:", this.cityadd.description);
+      console.log('Cityadd is: ', this.cityadd);
+  }
+  addCity(city: cityadd): Observable<City[]> {
+      return this.http.post<City[]>("api/cities/citiesOnly", city);
+      // TO DO
+      // make it works
 
   }
 
