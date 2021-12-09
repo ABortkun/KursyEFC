@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Towns } from "../../Services/towns.service";
 import { ICity }  from "../../shared/City";
 import { map } from "rxjs/operators";
 import { Service } from "../../Services/service";
@@ -12,14 +11,13 @@ import { Service } from "../../Services/service";
 })
 export class CitiesOnlyComponent implements OnInit {
 
-    constructor(public towns: Towns, public city: Service) {
+    constructor(public city: Service) {
         this.refreshCities();
     }
 
     ngOnInit(): void {
         /*this.city.apiCitiesCitiesOnlyGet().subscribe(r => console.log(r));*/
-       this.towns.loadCities()
-            .subscribe();
+      
     }
     
     page = 1;

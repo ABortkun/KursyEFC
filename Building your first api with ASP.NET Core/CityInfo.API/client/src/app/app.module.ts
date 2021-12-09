@@ -3,11 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from "./Components/welcome/welcome.component";
-import { Towns } from "./Services/towns.service";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { CityListPageComponent } from "./pages/CityListPage.component";
 import { Service } from "./Services/service";
+import { CitiesOnlyComponent } from "./Components/CitiesOnly/cities-only.component";
+import { FormsModule } from "@angular/forms";
+
+
 
 const routes: Routes = [
     {
@@ -25,16 +28,18 @@ const routes: Routes = [
     declarations: [
         AppComponent,
         WelcomeComponent,
-        CityListPageComponent
+        CityListPageComponent,
+        CitiesOnlyComponent
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
         NgbModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
+        FormsModule
     ],
     exports: [],
-    providers: [Towns, Service],
+    providers: [Service],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

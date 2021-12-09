@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm, NgModel, FormBuilder, FormGroup } from "@angular/forms";
 import { cityadd } from "../../shared/cityadd";
-import { Towns } from "../../Services/towns.service";
 import { ICity } from "../../shared/City";
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
