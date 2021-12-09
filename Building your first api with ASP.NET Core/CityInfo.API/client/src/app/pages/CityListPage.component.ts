@@ -1,6 +1,9 @@
 ﻿import { Component, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http"
 import { Towns } from "../Services/towns.service";
-import { Client } from "../Services/service";
+import { Service } from "../Services/service";
+import { Observable } from "rxjs";
+import { ICity } from "../shared/City";
 
 
 
@@ -11,10 +14,15 @@ import { Client } from "../Services/service";
 })
 export class CityListPageComponent implements OnInit {
 
-    constructor(public client: Client) {
+
+    cities: ICity[] = [];
+
+    constructor(public service: Service) {
     }
 
     ngOnInit(): void {
-        this.client.apiCitiesCitiesOnlyGet();
+        console.log("on init");
+        this.service.apiCitiesCitiesOnlyGet().subscribe(r => console.log(r));
     }
+
 }

@@ -2,12 +2,12 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { City } from "../shared/City";
+import { ICity } from "../shared/City";
 
 @Injectable()
 export class Towns {
 
-    public cities: City[] = [];
+    public cities: ICity[] = [];
 
     constructor(private http: HttpClient) {
 

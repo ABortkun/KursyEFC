@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgForm, NgModel, FormBuilder, FormGroup } from "@angular/forms";
 import { cityadd } from "../../shared/cityadd";
 import { Towns } from "../../Services/towns.service";
-import { City } from "../../shared/City";
+import { ICity } from "../../shared/City";
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, tap } from "rxjs/operators";
@@ -33,8 +33,8 @@ export class CityAddComponent implements OnInit {
       console.log("cityadd.description:", this.cityadd.description);
       console.log('Cityadd is: ', this.cityadd);
   }
-  addCity(city: cityadd): Observable<City[]> {
-      return this.http.post<City[]>("api/cities/citiesOnly", city);
+  addCity(city: cityadd): Observable<ICity[]> {
+      return this.http.post<ICity[]>("api/cities/citiesOnly", city);
       // TO DO
       // make it works
 

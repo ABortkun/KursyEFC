@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
+    constructor() {
+        /*console.log("app component");*/
+    }
 }

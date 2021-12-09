@@ -7,6 +7,7 @@ import { Towns } from "./Services/towns.service";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { CityListPageComponent } from "./pages/CityListPage.component";
+import { Service } from "./Services/service";
 
 const routes: Routes = [
     {
@@ -33,7 +34,7 @@ const routes: Routes = [
         RouterModule.forRoot(routes)
     ],
     exports: [],
-    providers: [Towns],
+    providers: [Towns, Service],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

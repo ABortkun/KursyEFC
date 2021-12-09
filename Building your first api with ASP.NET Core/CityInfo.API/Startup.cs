@@ -77,6 +77,7 @@ namespace CityInfo.API
 
             app.UseStaticFiles();
             app.UseStatusCodePages(); //zwraca .txt z kodem statusu
+            app.UseSpaStaticFiles();
             app.UseMvc();
             app.UseSpa(spa => spa.Options.SourcePath = "client");
         }

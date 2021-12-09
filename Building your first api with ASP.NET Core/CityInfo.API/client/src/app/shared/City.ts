@@ -1,5 +1,5 @@
-﻿export class City {
-    id?: number | null;
-    name!: string;
-    description!: string;
+﻿export interface ICity {
+    id: number | null;
+    name: string;
+    description: string;
 }

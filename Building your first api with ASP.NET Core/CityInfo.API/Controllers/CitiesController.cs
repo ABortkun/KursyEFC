@@ -33,7 +33,7 @@ namespace CityInfo.API.Controllers
         }
 
         [HttpGet("citiesOnly")]
-        public IActionResult GetCitiesOnly()
+        public List<CityWithoutPointsOfInterestDto> GetCitiesOnly()
         {
             var cityEntities = _cityInfoRepository.GetCities();
 
@@ -49,7 +49,7 @@ namespace CityInfo.API.Controllers
                 });
             }
 
-            return Ok(results);
+            return results;
         }
 
         [HttpGet("{id}")]
