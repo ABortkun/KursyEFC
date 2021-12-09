@@ -11,21 +11,25 @@ import { Service } from "../../Services/service";
 })
 export class CitiesOnlyComponent implements OnInit {
 
-    constructor(public city: Service) {
+    cities: ICity[] = [];
+
+    constructor(public service: Service) {
         this.refreshCities();
     }
 
     ngOnInit(): void {
-        /*this.city.apiCitiesCitiesOnlyGet().subscribe(r => console.log(r));*/
-      
+        this.service.apiCitiesCitiesOnlyGet()
+            .subscribe((res: any) => {
+                this.cities = res;
+            });
     }
     
     page = 1;
     pageSize = 3;
-    collectionSize = this.towns.cities.length;
+    collectionSize = this.cities.length;
 
     refreshCities() {
-        this.towns.cities
+        this.cities
             .map((c, i) => ({ id: i + 1, ...c}))
             .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
     }

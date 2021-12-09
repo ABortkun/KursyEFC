@@ -2,7 +2,6 @@
 import { HttpClient } from "@angular/common/http"
 import { Service } from "../Services/service";
 import { Observable } from "rxjs";
-import { ICity } from "../shared/City";
 
 
 
@@ -14,7 +13,6 @@ import { ICity } from "../shared/City";
 export class CityListPageComponent implements OnInit {
 
 
-    cities: ICity[] = [];
 
     constructor(public service: Service) {
     }
