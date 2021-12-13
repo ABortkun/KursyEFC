@@ -32,7 +32,7 @@ namespace CityInfo.API
                     try
                     {
                         var context = scope.ServiceProvider.GetService<CityInfoContext>();
-                        context.Database.EnsureDeleted();
+                        //context.Database.EnsureDeleted();
                         context.Database.Migrate();
                     }
                     catch (Exception e)
