@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm, NgModel, FormBuilder, FormGroup } from "@angular/forms";
-import { cityadd } from "../../shared/cityadd";
-import { ICity } from "../../shared/City";
+import { ICityadd  } from "../../shared/cityadd";
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, tap } from "rxjs/operators";
+import { Service } from "../../Services/service";
 
 
 @Component({
@@ -15,20 +15,19 @@ import { map, tap } from "rxjs/operators";
 })
 export class CityAddComponent implements OnInit {
 
-    oryginalcityadd : cityadd = ({
+    oryginalcityadd: ICityadd = ({
         name: null,
         description: null
     }) as any;
 
-    cityadd : cityadd = {...this.oryginalcityadd}
+    cityadd : ICityadd = {...this.oryginalcityadd}
 
-  constructor(private http: HttpClient) { }
+  constructor(public service: Service) { }
 
   ngOnInit(): void {
   }
   onSubmit(form: NgForm) {
-      console.log("cityadd.name:", this.cityadd.name);
-      console.log("cityadd.description:", this.cityadd.description);
       console.log('Cityadd is: ', this.cityadd);
+      this.service.apiCitiesCityPost(this.cityadd.name, this.cityadd.description).subscribe();
   }
 }

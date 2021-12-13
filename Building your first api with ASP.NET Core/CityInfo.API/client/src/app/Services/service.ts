@@ -77,7 +77,7 @@ export class Service {
      * @param description (optional) 
      * @return Success
      */
-    apiCitiesCityPost(name: string | null | undefined, description: string | null | undefined): Observable<void> {
+    apiCitiesCityPost(name: string | null | undefined, description: string | null | undefined): Observable<CityWithoutPointsOfInterestDto[]> {
         let url_ = this.baseUrl + "/api/cities/city?";
         if (name !== undefined && name !== null)
             url_ += "name=" + encodeURIComponent("" + name) + "&";
@@ -99,14 +99,14 @@ export class Service {
                 try {
                     return this.processApiCitiesCityPost(<any>response_);
                 } catch (e) {
-                    return <Observable<void>><any>_observableThrow(e);
+                    return <Observable<CityWithoutPointsOfInterestDto[]>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<void>><any>_observableThrow(response_);
+                return <Observable<CityWithoutPointsOfInterestDto[]>><any>_observableThrow(response_);
         }));
     }
 
-    protected processApiCitiesCityPost(response: HttpResponseBase): Observable<void> {
+    protected processApiCitiesCityPost(response: HttpResponseBase): Observable<CityWithoutPointsOfInterestDto[]> {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
@@ -115,14 +115,14 @@ export class Service {
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+            return _observableOf<CityWithoutPointsOfInterestDto[]>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<void>(<any>null);
+        return _observableOf<CityWithoutPointsOfInterestDto[]>(<any>null);
     }
 
     /**
