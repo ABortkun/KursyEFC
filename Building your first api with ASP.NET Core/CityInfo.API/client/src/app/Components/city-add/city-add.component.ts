@@ -27,16 +27,8 @@ export class CityAddComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(form: NgForm) {
-      console.log("in onSubmit: ", form.value);
       console.log("cityadd.name:", this.cityadd.name);
       console.log("cityadd.description:", this.cityadd.description);
       console.log('Cityadd is: ', this.cityadd);
   }
-  addCity(city: cityadd): Observable<ICity[]> {
-      return this.http.post<ICity[]>("api/cities/citiesOnly", city);
-      // TO DO
-      // make it works
-
-  }
-
 }

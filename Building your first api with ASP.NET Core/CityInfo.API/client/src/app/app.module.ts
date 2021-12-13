@@ -9,6 +9,7 @@ import { CityListPageComponent } from "./pages/CityListPage.component";
 import { Service } from "./Services/service";
 import { CitiesOnlyComponent } from "./Components/CitiesOnly/cities-only.component";
 import { FormsModule } from "@angular/forms";
+import { CityAddComponent } from "./Components/city-add/city-add.component";
 
 
 
@@ -29,7 +30,8 @@ const routes: Routes = [
         AppComponent,
         WelcomeComponent,
         CityListPageComponent,
-        CitiesOnlyComponent
+        CitiesOnlyComponent,
+        CityAddComponent
     ],
     imports: [
         BrowserModule,

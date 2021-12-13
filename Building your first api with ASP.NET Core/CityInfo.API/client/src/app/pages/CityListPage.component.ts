@@ -18,7 +18,6 @@ export class CityListPageComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log("on init");
         this.service.apiCitiesCitiesOnlyGet().subscribe(r => console.log(r));
     }
 
