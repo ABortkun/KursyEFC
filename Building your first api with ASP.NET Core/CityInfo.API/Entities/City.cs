@@ -10,13 +10,11 @@ namespace CityInfo.API.Entities
 {
     public class City
     {
-        
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "You should provide a name value")]
+        [MaxLength(30, ErrorMessage = "Max length of this value is 50")]
         public string Name { get; set; }
         [MaxLength(200)]
         public string Description { get; set; }
