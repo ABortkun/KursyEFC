@@ -30,7 +30,7 @@ export class CitiesOnlyComponent implements OnInit {
 
     refreshCities() {
         this.cities
-            .map((c, i) => ({ id: i + 1, ...c}))
+            .map((c, i) => ({ Id: i + 1, ...c}))
             .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
     }
 }
