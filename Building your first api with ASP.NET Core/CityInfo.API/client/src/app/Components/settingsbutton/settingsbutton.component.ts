@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settingsbutton',
@@ -8,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsbuttonComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {
+
+  }
+  goSettings() {
+      this.router.navigateByUrl('/settings');
+  }
 
   ngOnInit(): void {
   }

@@ -6,6 +6,7 @@ import { WelcomeComponent } from "./Components/welcome/welcome.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { CityListPageComponent } from "./pages/CityListPage.component";
+import { SettingsPageComponent } from "./pages/SettingsPage.component";
 import { Service } from "./Services/service";
 import { CitiesOnlyComponent } from "./Components/CitiesOnly/cities-only.component";
 import { FormsModule } from "@angular/forms";
@@ -22,6 +23,10 @@ const routes: Routes = [
     {
         path: 'welcome',
         component: WelcomeComponent
+    },
+    {
+        path: 'settings',
+        component: SettingsPageComponent
     }
 ];
 
@@ -31,6 +36,7 @@ const routes: Routes = [
         AppComponent,
         WelcomeComponent,
         CityListPageComponent,
+        SettingsPageComponent,
         CitiesOnlyComponent,
         CityAddComponent,
         SettingsbuttonComponent
