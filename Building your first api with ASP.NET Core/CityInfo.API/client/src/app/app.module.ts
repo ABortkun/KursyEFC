@@ -10,6 +10,7 @@ import { Service } from "./Services/service";
 import { CitiesOnlyComponent } from "./Components/CitiesOnly/cities-only.component";
 import { FormsModule } from "@angular/forms";
 import { CityAddComponent } from "./Components/city-add/city-add.component";
+import { SettingsbuttonComponent } from './Components/settingsbutton/settingsbutton.component';
 
 
 
@@ -31,7 +32,8 @@ const routes: Routes = [
         WelcomeComponent,
         CityListPageComponent,
         CitiesOnlyComponent,
-        CityAddComponent
+        CityAddComponent,
+        SettingsbuttonComponent
     ],
     imports: [
         BrowserModule,
