@@ -1,14 +1,17 @@
-﻿<div  [ngClass]="{light: themeService.lightTheme, medium: themeService.mediumTheme, dark: themeService.darkTheme}">
-    <br />
-    <div class="main-table">
-        <app-cities-only></app-cities-only>
-    </div>
-    <div>
-        <app-city-add></app-city-add>
-    </div>
-    <br />
-    <div>
-        <app-settingsbutton></app-settingsbutton>
-    </div>
-</div>
+﻿<mat-sidenav-container [ngClass]="{light: themeService.lightTheme, medium: themeService.mediumTheme, dark: themeService.darkTheme}">
+        <mat-sidenav mode="side" opened>here is the side content</mat-sidenav>
+        <mat-sidenav-content>
+            <br />
+            <div class="main-table">
+                <app-cities-only></app-cities-only>
+            </div>
+            <div>
+                <app-city-add></app-city-add>
+            </div>
+            <br />
+            <div>
+                <app-settingsbutton></app-settingsbutton>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 

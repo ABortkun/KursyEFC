@@ -13,6 +13,8 @@ import { CitiesOnlyComponent } from "./Components/CitiesOnly/cities-only.compone
 import { FormsModule } from "@angular/forms";
 import { CityAddComponent } from "./Components/city-add/city-add.component";
 import { SettingsbuttonComponent } from './Components/settingsbutton/settingsbutton.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -47,7 +49,9 @@ const routes: Routes = [
         HttpClientModule,
         NgbModule,
         RouterModule.forRoot(routes),
-        FormsModule
+        FormsModule,
+        MatSidenavModule,
+        BrowserAnimationsModule
     ],
     exports: [],
     providers: [Service, ThemeService],
