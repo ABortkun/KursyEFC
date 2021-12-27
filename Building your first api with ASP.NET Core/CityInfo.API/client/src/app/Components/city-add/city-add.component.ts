@@ -28,6 +28,6 @@ export class CityAddComponent implements OnInit {
   }
   onSubmit(form: NgForm) {
       console.log('Cityadd is: ', this.cityadd);
-      this.service.apiCitiesCityPost(this.cityadd.name, this.cityadd.description).subscribe();
+      this.service.apiCitiesCityPost(this.cityadd.name, this.cityadd.description, this.cityadd.country).subscribe();
   }
 }
