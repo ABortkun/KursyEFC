@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CityListPageComponent } from "./pages/CityListPage.component";
 import { SettingsPageComponent } from "./pages/SettingsPage.component";
 import { Service } from "./Services/service";
+import { ThemeService } from "./Services/ThemeService";
 import { CitiesOnlyComponent } from "./Components/CitiesOnly/cities-only.component";
 import { FormsModule } from "@angular/forms";
 import { CityAddComponent } from "./Components/city-add/city-add.component";
@@ -49,7 +50,7 @@ const routes: Routes = [
         FormsModule
     ],
     exports: [],
-    providers: [Service],
+    providers: [Service, ThemeService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

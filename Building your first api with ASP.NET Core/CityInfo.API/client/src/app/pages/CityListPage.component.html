@@ -1,17 +1,14 @@
-﻿<div>
-    <p>CityListPage</p>
+﻿<div  [ngClass]="{light: themeService.lightTheme, medium: themeService.mediumTheme, dark: themeService.darkTheme}">
+    <br />
+    <div class="main-table">
+        <app-cities-only></app-cities-only>
+    </div>
+    <div>
+        <app-city-add></app-city-add>
+    </div>
+    <br />
+    <div>
+        <app-settingsbutton></app-settingsbutton>
+    </div>
 </div>
-<div>
-    <app-welcome></app-welcome>
-</div>
-<br />
-<div>
-    <app-cities-only></app-cities-only>
-</div>
-<div>
-    <app-city-add></app-city-add>
-</div>
-<br />
-<div>
-    <app-settingsbutton></app-settingsbutton>
-</div>
+

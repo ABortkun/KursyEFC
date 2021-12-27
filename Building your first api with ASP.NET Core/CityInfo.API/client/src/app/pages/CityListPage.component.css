@@ -1,0 +1,23 @@
+﻿.light {
+    background-color: white;
+    color: black;
+    transition-duration: 1s;
+    height: 100%;
+}
+
+.medium {
+    background-color: rgb(177, 177, 177);
+    color: black;
+    transition-duration: 1s;
+    height: 100%;
+}
+
+.dark {
+    background-color: rgb(68, 68, 68);
+    color: white;
+    transition-duration: 1s;
+    height: 100%;
+}
+.main-table {
+    color: white;
+}
