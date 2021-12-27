@@ -48,12 +48,13 @@ namespace CityInfo.API.Services
             return _context.Cities.Any(c => c.Id == cityId);
         }
 
-        public void AddCity(string name, string description)
+        public void AddCity(string name, string description, string country)
         {
             var city = new City()
             {
                 Name = name,
-                Description = description
+                Description = description,
+                Country = country
             };
             _context.Cities.Add(city);
             _context.SaveChanges();

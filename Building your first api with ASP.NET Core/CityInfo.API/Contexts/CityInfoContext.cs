@@ -36,31 +36,36 @@ namespace CityInfo.API.Contexts
                     {
                         Id = 1,
                         Name = "New York City",
-                        Description = "The one with that big park."
+                        Description = "The one with that big park.",
+                        Country = "United States of America",
                     },
                     new City()
                     {
                         Id = 2,
                         Name = "Antwerp",
-                        Description = "The one with the cathedral that was never really finished."
+                        Description = "The one with the cathedral that was never really finished.",
+                        Country = "Belgium",
                     },
                     new City()
                     {
                         Id = 3,
                         Name = "Paris",
-                        Description = "The one with that big tower."
+                        Description = "The one with that big tower.",
+                        Country = "France",
                     },
                     new City()
                     {
                         Id = 4,
                         Name = "Gdańsk",
-                        Description = "Big part of Tri-City with acces to the sea"
+                        Description = "Big part of Tri-City with acces to the sea",
+                        Country = "Poland",
                     },
                     new City()
                     {
                         Id = 5,
                         Name = "Warszawa",
-                        Description = "The one with that big tower."
+                        Description = "The one with that big tower.",
+                        Country = "Poland"
                     });
 
             modelBuilder.Entity<PointOfInterest>()

@@ -27,9 +27,9 @@ namespace CityInfo.API.Controllers
         }
 
         [HttpPost("city")]
-        public void PostCity(string name, string description)
+        public void PostCity(string name, string description, string country)
         {
-            _cityInfoRepository.AddCity( name, description);
+            _cityInfoRepository.AddCity( name, description, country);
         }
 
         [HttpGet("citiesOnly")]
@@ -45,7 +45,8 @@ namespace CityInfo.API.Controllers
                 {
                     Id = cityEntity.Id,
                     Description = cityEntity.Description,
-                    Name = cityEntity.Name
+                    Name = cityEntity.Name,
+                    Country = cityEntity.Country
                 });
             }
 
@@ -68,7 +69,8 @@ namespace CityInfo.API.Controllers
                 {
                     Id = city.Id,
                     Name = city.Name,
-                    Description = city.Description
+                    Description = city.Description,
+                    Country = city.Country
                 };
 
                 foreach (var poi in city.PointsOfInterest)
@@ -90,7 +92,8 @@ namespace CityInfo.API.Controllers
                 {
                     Id = city.Id,
                     Description = city.Description,
-                    Name = city.Name
+                    Name = city.Name,
+                    Country = city.Country
                 };
             return Ok(cityWithoutPointsOfInterestResult);
 
