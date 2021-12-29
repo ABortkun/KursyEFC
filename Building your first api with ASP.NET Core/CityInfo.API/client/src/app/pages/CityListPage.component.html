@@ -1,5 +1,7 @@
 ﻿<mat-sidenav-container [ngClass]="{light: themeService.lightTheme, medium: themeService.mediumTheme, dark: themeService.darkTheme}">
-        <mat-sidenav mode="side" opened>here is the side content</mat-sidenav>
+    <mat-sidenav mode="side" opened>
+        <app-sidenav></app-sidenav>
+    </mat-sidenav>
         <mat-sidenav-content>
             <br />
             <div class="main-table">

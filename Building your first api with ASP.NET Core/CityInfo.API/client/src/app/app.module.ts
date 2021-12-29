@@ -9,12 +9,14 @@ import { CityListPageComponent } from "./pages/CityListPage.component";
 import { SettingsPageComponent } from "./pages/SettingsPage.component";
 import { Service } from "./Services/service";
 import { ThemeService } from "./Services/ThemeService";
+import { DataService } from "./Services/DataService";
 import { CitiesOnlyComponent } from "./Components/CitiesOnly/cities-only.component";
 import { FormsModule } from "@angular/forms";
 import { CityAddComponent } from "./Components/city-add/city-add.component";
 import { SettingsbuttonComponent } from './Components/settingsbutton/settingsbutton.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidenavComponent } from "./Components/sidenav/sidenav.component";
 
 
 
@@ -42,7 +44,8 @@ const routes: Routes = [
         SettingsPageComponent,
         CitiesOnlyComponent,
         CityAddComponent,
-        SettingsbuttonComponent
+        SettingsbuttonComponent,
+        SidenavComponent
     ],
     imports: [
         BrowserModule,
@@ -54,7 +57,7 @@ const routes: Routes = [
         BrowserAnimationsModule
     ],
     exports: [],
-    providers: [Service, ThemeService],
+    providers: [Service, ThemeService, DataService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
