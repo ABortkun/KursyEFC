@@ -1,5 +1,5 @@
 ﻿<mat-sidenav-container [ngClass]="{light: themeService.lightTheme, medium: themeService.mediumTheme, dark: themeService.darkTheme}">
-    <mat-sidenav mode="side" opened>
+    <mat-sidenav [ngClass]="{light: themeService.lightTheme, medium: themeService.mediumTheme, dark: themeService.darkTheme}" mode="side" opened>
         <app-sidenav></app-sidenav>
     </mat-sidenav>
         <mat-sidenav-content>
