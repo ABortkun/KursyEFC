@@ -1,14 +1,9 @@
 ﻿import { ICity }  from "../shared/City";
 import { Subject } from 'rxjs/Subject';
+import { IPointsOfInterest } from "../shared/PointsOfInterest";
 
 export class DataService {
     cities: ICity[] = [];
-
-    private selectedCitySource = new Subject();
-    selectedProductChanges$ = this.selectedCitySource.asObservable();
-
-
-    changeSelectedCity(selectedCity: ICity | null): void {
-        this.selectedCitySource.next(selectedCity);
-    }
+    selectedData: any;
+    pointsofinterest: IPointsOfInterest[] = [];
 }

@@ -282,7 +282,7 @@ export class Service {
     /**
      * @return Success
      */
-    apiCitiesByCityIdPointsofinterestGet(cityId: number): Observable<void> {
+    apiCitiesByCityIdPointsofinterestGet(cityId: number): Observable<PointOfInterestDto[]> {
         let url_ = this.baseUrl + "/api/cities/{cityId}/pointsofinterest";
         if (cityId === undefined || cityId === null)
             throw new Error("The parameter 'cityId' must be defined.");
@@ -293,6 +293,7 @@ export class Service {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
+                "Accept": "application/json"
             })
         };
 
@@ -303,14 +304,14 @@ export class Service {
                 try {
                     return this.processApiCitiesByCityIdPointsofinterestGet(<any>response_);
                 } catch (e) {
-                    return <Observable<void>><any>_observableThrow(e);
+                    return <Observable<PointOfInterestDto[]>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<void>><any>_observableThrow(response_);
+                return <Observable<PointOfInterestDto[]>><any>_observableThrow(response_);
         }));
     }
 
-    protected processApiCitiesByCityIdPointsofinterestGet(response: HttpResponseBase): Observable<void> {
+    protected processApiCitiesByCityIdPointsofinterestGet(response: HttpResponseBase): Observable<PointOfInterestDto[]> {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
@@ -319,291 +320,16 @@ export class Service {
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+            let result200: any = null;
+            result200 = _responseText === "" ? null : <PointOfInterestDto[]>JSON.parse(_responseText, this.jsonParseReviver);
+            return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<void>(<any>null);
-    }
-
-    /**
-     * @param pointOfInterest (optional) 
-     * @return Success
-     */
-    apiCitiesByCityIdPointsofinterestPost(cityId: number, pointOfInterest: PointOfInterestForCreationDto | null | undefined): Observable<void> {
-        let url_ = this.baseUrl + "/api/cities/{cityId}/pointsofinterest";
-        if (cityId === undefined || cityId === null)
-            throw new Error("The parameter 'cityId' must be defined.");
-        url_ = url_.replace("{cityId}", encodeURIComponent("" + cityId));
-        url_ = url_.replace(/[?&]$/, "");
-
-        const content_ = JSON.stringify(pointOfInterest);
-
-        let options_ : any = {
-            body: content_,
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-                "Content-Type": "application/json",
-            })
-        };
-
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processApiCitiesByCityIdPointsofinterestPost(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processApiCitiesByCityIdPointsofinterestPost(<any>response_);
-                } catch (e) {
-                    return <Observable<void>><any>_observableThrow(e);
-                }
-            } else
-                return <Observable<void>><any>_observableThrow(response_);
-        }));
-    }
-
-    protected processApiCitiesByCityIdPointsofinterestPost(response: HttpResponseBase): Observable<void> {
-        const status = response.status;
-        const responseBlob =
-            response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf<void>(<any>null);
-    }
-
-    /**
-     * @return Success
-     */
-    apiCitiesByCityIdPointsofinterestByIdGet(cityId: number, id: number): Observable<void> {
-        let url_ = this.baseUrl + "/api/cities/{cityId}/pointsofinterest/{id}";
-        if (cityId === undefined || cityId === null)
-            throw new Error("The parameter 'cityId' must be defined.");
-        url_ = url_.replace("{cityId}", encodeURIComponent("" + cityId));
-        if (id === undefined || id === null)
-            throw new Error("The parameter 'id' must be defined.");
-        url_ = url_.replace("{id}", encodeURIComponent("" + id));
-        url_ = url_.replace(/[?&]$/, "");
-
-        let options_ : any = {
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-            })
-        };
-
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processApiCitiesByCityIdPointsofinterestByIdGet(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processApiCitiesByCityIdPointsofinterestByIdGet(<any>response_);
-                } catch (e) {
-                    return <Observable<void>><any>_observableThrow(e);
-                }
-            } else
-                return <Observable<void>><any>_observableThrow(response_);
-        }));
-    }
-
-    protected processApiCitiesByCityIdPointsofinterestByIdGet(response: HttpResponseBase): Observable<void> {
-        const status = response.status;
-        const responseBlob =
-            response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf<void>(<any>null);
-    }
-
-    /**
-     * @param pointOfInterest (optional) 
-     * @return Success
-     */
-    apiCitiesByCityIdPointsofinterestByIdPut(cityId: number, id: number, pointOfInterest: PointOfInterestForUpdateDto | null | undefined): Observable<void> {
-        let url_ = this.baseUrl + "/api/cities/{cityId}/pointsofinterest/{id}";
-        if (cityId === undefined || cityId === null)
-            throw new Error("The parameter 'cityId' must be defined.");
-        url_ = url_.replace("{cityId}", encodeURIComponent("" + cityId));
-        if (id === undefined || id === null)
-            throw new Error("The parameter 'id' must be defined.");
-        url_ = url_.replace("{Id}", encodeURIComponent("" + id));
-        url_ = url_.replace(/[?&]$/, "");
-
-        const content_ = JSON.stringify(pointOfInterest);
-
-        let options_ : any = {
-            body: content_,
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-                "Content-Type": "application/json",
-            })
-        };
-
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processApiCitiesByCityIdPointsofinterestByIdPut(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processApiCitiesByCityIdPointsofinterestByIdPut(<any>response_);
-                } catch (e) {
-                    return <Observable<void>><any>_observableThrow(e);
-                }
-            } else
-                return <Observable<void>><any>_observableThrow(response_);
-        }));
-    }
-
-    protected processApiCitiesByCityIdPointsofinterestByIdPut(response: HttpResponseBase): Observable<void> {
-        const status = response.status;
-        const responseBlob =
-            response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf<void>(<any>null);
-    }
-
-    /**
-     * @return Success
-     */
-    apiCitiesByCityIdPointsofinterestByIdDelete(cityId: number, id: number): Observable<void> {
-        let url_ = this.baseUrl + "/api/cities/{cityId}/pointsofinterest/{id}";
-        if (cityId === undefined || cityId === null)
-            throw new Error("The parameter 'cityId' must be defined.");
-        url_ = url_.replace("{cityId}", encodeURIComponent("" + cityId));
-        if (id === undefined || id === null)
-            throw new Error("The parameter 'id' must be defined.");
-        url_ = url_.replace("{Id}", encodeURIComponent("" + id));
-        url_ = url_.replace(/[?&]$/, "");
-
-        let options_ : any = {
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-            })
-        };
-
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processApiCitiesByCityIdPointsofinterestByIdDelete(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processApiCitiesByCityIdPointsofinterestByIdDelete(<any>response_);
-                } catch (e) {
-                    return <Observable<void>><any>_observableThrow(e);
-                }
-            } else
-                return <Observable<void>><any>_observableThrow(response_);
-        }));
-    }
-
-    protected processApiCitiesByCityIdPointsofinterestByIdDelete(response: HttpResponseBase): Observable<void> {
-        const status = response.status;
-        const responseBlob =
-            response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf<void>(<any>null);
-    }
-
-    /**
-     * @param patchDoc (optional) 
-     * @return Success
-     */
-    apiCitiesByCityIdPointsofinterestByIdPatch(cityId: number, id: number, patchDoc: Operation[] | null | undefined): Observable<void> {
-        let url_ = this.baseUrl + "/api/cities/{cityId}/pointsofinterest/{id}";
-        if (cityId === undefined || cityId === null)
-            throw new Error("The parameter 'cityId' must be defined.");
-        url_ = url_.replace("{cityId}", encodeURIComponent("" + cityId));
-        if (id === undefined || id === null)
-            throw new Error("The parameter 'id' must be defined.");
-        url_ = url_.replace("{Id}", encodeURIComponent("" + id));
-        url_ = url_.replace(/[?&]$/, "");
-
-        const content_ = JSON.stringify(patchDoc);
-
-        let options_ : any = {
-            body: content_,
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-                "Content-Type": "application/json",
-            })
-        };
-
-        return this.http.request("patch", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processApiCitiesByCityIdPointsofinterestByIdPatch(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processApiCitiesByCityIdPointsofinterestByIdPatch(<any>response_);
-                } catch (e) {
-                    return <Observable<void>><any>_observableThrow(e);
-                }
-            } else
-                return <Observable<void>><any>_observableThrow(response_);
-        }));
-    }
-
-    protected processApiCitiesByCityIdPointsofinterestByIdPatch(response: HttpResponseBase): Observable<void> {
-        const status = response.status;
-        const responseBlob =
-            response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf<void>(<any>null);
+        return _observableOf<PointOfInterestDto[]>(<any>null);
     }
 }
 
@@ -614,21 +340,10 @@ export interface CityWithoutPointsOfInterestDto {
     country?: string | undefined;
 }
 
-export interface PointOfInterestForCreationDto {
-    name: string;
+export interface PointOfInterestDto {
+    id?: number | undefined;
+    name?: string | undefined;
     description?: string | undefined;
-}
-
-export interface PointOfInterestForUpdateDto {
-    name: string;
-    description?: string | undefined;
-}
-
-export interface Operation {
-    value?: any | undefined;
-    path?: string | undefined;
-    op?: string | undefined;
-    from?: string | undefined;
 }
 
 export class ApiException extends Error {
