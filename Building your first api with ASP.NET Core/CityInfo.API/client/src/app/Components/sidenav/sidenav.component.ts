@@ -16,9 +16,12 @@ export class SidenavComponent implements OnInit {
     ngOnInit(): void {
         this.themeService.LoadTheme();
         this.themeService.StyleChange(String(this.themeService.themeFromStorage));
+        
     }
 
-    constructor(public dataservice: DataService, public service: Service, public themeService: ThemeService) { }
+    constructor(public dataservice: DataService, public service: Service, public themeService: ThemeService) {
+        this.MainTableSelected();
+    }
 
     onSelected(_index: number): void {
         this.selectedIndex = _index;

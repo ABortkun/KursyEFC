@@ -8,20 +8,19 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let c of this.dataservice.selectedData">
+        <tr *ngFor="let c of this.dataservice.selectedData | slice: (page-1) * pageSize : page * pageSize">
             <td>{{ c.id }}</td>
             <td>{{ c.name }}</td>
             <td>{{ c.description }}</td>
             <td>{{ c.country }}</td>
-        </tr>
+    </tr>
     </tbody>
 </table>
 
 <div class="d-flex justify-content-between p-2">
-    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCities()">
-    </ngb-pagination>
-
-    <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCities()">
+    <ngb-pagination [collectionSize]="this.dataservice.selectedData.length" [(page)]="page" [maxSize]="5" [boundaryLinks]="true"
+                    [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+    <select class="custom-select d-flex justify-content-center" style="width: auto" [(ngModel)]="pageSize">
         <option [ngValue]="1">1 item per page</option>
         <option [ngValue]="3">3 items per page</option>
         <option [ngValue]="5">5 items per page</option>
