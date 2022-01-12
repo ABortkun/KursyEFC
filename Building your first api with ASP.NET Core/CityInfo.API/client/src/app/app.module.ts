@@ -19,10 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from "./Components/sidenav/sidenav.component";
 
 
-
 const routes: Routes = [
     {
-        path: '',
+        path: 'cities',
         component: CityListPageComponent
     },
     {
@@ -32,6 +31,10 @@ const routes: Routes = [
     {
         path: 'settings',
         component: SettingsPageComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'cities'
     }
 ];
 

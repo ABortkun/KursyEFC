@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using CityInfo.API.Models;
 using CityInfo.API.Services;
@@ -27,9 +28,24 @@ namespace CityInfo.API.Controllers
         }
 
         [HttpPost("city")]
-        public void PostCity(string name, string description, string country)
+        public IActionResult PostCity(string name, string description, string country)
         {
-            _cityInfoRepository.AddCity( name, description, country);
+            var modelStateIsValid = ModelState.IsValid;
+            if (!modelStateIsValid)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                _cityInfoRepository.AddCity(name, description, country);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500);
+            }
+            return Ok();
         }
 
         [HttpGet("citiesOnly")]
