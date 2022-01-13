@@ -1,0 +1,19 @@
+﻿<div class="col-3">
+    <form #form="ngForm" ngNativeValidate (ngSubmit)="onSubmit(form)">
+        <div class="form-group">
+            <input type="text" name="name" class="form-control" placeholder="City Name" aria-label="Username" [(ngModel)]="cityadd.name" required maxlength="30">
+        </div>
+        <br />
+        <div class="form-group">
+            <textarea class="form-control" name="description" placeholder="City Description" aria-label="Username" [(ngModel)]="cityadd.description" required maxlength="200"></textarea>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="text" name="Country" class="form-control" placeholder="Country" aria-label="Username" [(ngModel)]="cityadd.country" required maxlength="30">
+        </div>
+        <br/>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+</div>

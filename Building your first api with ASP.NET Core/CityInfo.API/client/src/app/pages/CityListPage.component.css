@@ -1,0 +1,28 @@
+﻿.light {
+    background-color: white;
+    color: black;
+    transition-duration: 1s;
+    height: 100%;
+}
+
+.medium {
+    background-color: rgb(177, 177, 177);
+    color: black;
+    transition-duration: 1s;
+    height: 100%;
+}
+
+.dark {
+    background-color: rgb(80, 80, 80);
+    color: white;
+    transition-duration: 1s;
+    height: 100%;
+}
+mat-sidenav {
+    width: 300px;
+    border-right: 2px solid grey;
+}
+mat-sidenav-content {
+    padding: 20px;
+}
+

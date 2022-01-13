@@ -1,0 +1,41 @@
+﻿.container {
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    align-items: center;
+    max-width: 700px;
+}
+.light {
+    background-color: white;
+    color: black;
+    transition-duration: 1s;
+    height: 100%;
+}
+
+.medium {
+    background-color: rgb(177, 177, 177);
+    color: black;
+    transition-duration: 1s;
+    height: 100%;
+}
+
+.dark {
+    background-color: rgb(68, 68, 68);
+    color: white;
+    transition-duration: 1s;
+    height: 100%;
+}
+
+h1 {
+    padding-top: 10px;
+    font-size: 35px;
+    font-family: sans-serif;
+}
+
+.btn-group {
+    padding: 10px;
+}
+
+.back-btn {
+    margin-bottom: 5px;
+}

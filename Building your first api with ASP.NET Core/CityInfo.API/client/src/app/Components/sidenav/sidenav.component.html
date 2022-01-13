@@ -1,0 +1,18 @@
+﻿<div class="leftmenu">
+    <div class="list-group list">
+        <button type="button"
+                class="list-group-item big-btn btn btn-primary"
+                (click)="MainTableSelected()"
+                [ngClass]="{'selected': selectedIndex === null}">
+            All Cities
+        </button>
+        <br />
+        <button type="button"
+                class="list-group-item btn btn-primary small-btn"
+                *ngFor="let c of this.dataservice.cities; let i = index;"
+                (click)="onSelected(i)"
+                [ngClass]="{'selected': selectedIndex === i}">
+            {{ c.name }}
+        </button>
+    </div>
+</div>
