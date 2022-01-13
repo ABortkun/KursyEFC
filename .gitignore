@@ -530,3 +530,5 @@ healthchecksdb
 
 # End of https://www.gitignore.io/api/git,angular,aspnetcore,visualstudio,visualstudiocode
 Xray.Web/Logs/
+Building your first api with ASP.NET Core/README.txt
+Building your first api with ASP.NET Core/CityInfo.API.rar
